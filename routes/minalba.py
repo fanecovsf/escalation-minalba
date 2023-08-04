@@ -1,4 +1,4 @@
-from flask import Response, Blueprint, jsonify, abort
+from flask import Response, Blueprint, jsonify, abort, request
 import json
 
 from models.unidade import Unidade
@@ -54,6 +54,29 @@ def unidade(id):
         ]
 
         return Response(response=json.dumps(data, ensure_ascii=False), status=200, content_type="application/json")
+    
+@minalba_bp.route('/minalba/unidades/add', methods=['PUT'])
+def add_unidade():
+    try:
+        data = request.json
+        nome = data.get('nome')
+
+        unidade = Unidade(nome)
+        unidade.insert()
+
+        message_data = {
+            'Sucesso':f'Unidade {nome} adicionada com sucesso!'
+        }
+
+        return Response(response=json.dumps(message_data, ensure_ascii=False), status=200, content_type="application/json")
+        
+
+    except Exception as e:
+        error_data = {
+            'error':str(e)
+        }
+
+        return Response(response=json.dumps(error_data, ensure_ascii=False), status=500, content_type="application/json")
     
 
 

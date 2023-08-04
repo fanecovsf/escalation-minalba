@@ -17,12 +17,16 @@ class Unidade(db.Model):
         unidade = db.session.get(Unidade, self.id)
         return unidade.id
 
-    def insert(unidade):
-        db.session.add(unidade)
+    def insert(self):
+        db.session.add(self)
         db.session.commit()
 
-    def update(id, unidade):
-        unidade_old = db.session.get(Unidade, id)
-        unidade_old.nome = unidade.nome
+    def update(self, nome:str):
+        unidade_old = db.session.get(Unidade, self.id)
+        unidade_old.nome = nome
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
         db.session.commit()
 

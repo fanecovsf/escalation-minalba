@@ -54,6 +54,9 @@ if __name__ == '__main__':
             contato1.insert()
             contato2.insert()
 
+            unidade1.update('São João da Boa Vista')
+
+            
 
             db.session.commit()
 
