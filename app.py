@@ -1,4 +1,7 @@
 from flask import Flask, render_template
+
+from routes.minalba import minalba_bp
+
 from models.unidade import Unidade
 from models.contato import Contato
 
@@ -20,11 +23,15 @@ app.config['SQLALCHEMY_BINDS'] = {
 
 db.init_app(app=app)
 
-#Rotas
+#Landing page
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 @app.route('/')
 def landing():
     return render_template('landing.html')
+
+#Blueprints
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+app.register_blueprint(minalba_bp)
 
 #Execução
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
