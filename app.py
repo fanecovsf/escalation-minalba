@@ -48,14 +48,13 @@ if __name__ == '__main__':
             unidade2.insert()
 
 
-            contato1 = Contato('Gustavo', 'Analista', 2, 'ADM', 'gustavo@gmail.com', '993561207', unidade1.get_id())
-            contato2 = Contato('Luciano', 'Supervisor', 4, 'A', 'luciano@gmail.com', '994561453', unidade2.get_id())
+            contato1 = Contato('Gustavo', 'Analista', 2, 'ADM', 'gustavo@gmail.com', '993561207', unidade1)
+            contato2 = Contato('Luciano', 'Supervisor', 4, 'A', 'luciano@gmail.com', '994561453', unidade2)
+            contato3 = Contato('Henrique', 'Assistente', 1, 'B', 'henrique@gmail.com', '998765732', unidade1)
 
             contato1.insert()
             contato2.insert()
-
-            unidade1.update('São João da Boa Vista')
-
+            contato3.insert()
             
 
             db.session.commit()

@@ -1,5 +1,7 @@
 from db_config import db, BRANCH
 
+from .unidade import Unidade
+
 class Contato(db.Model):
     __tablename__ = 'tb_contatos'
     __bind_key__ = BRANCH
@@ -18,15 +20,19 @@ class Contato(db.Model):
     unidade_id = db.Column(db.Integer, db.ForeignKey('tb_unidades.id'), nullable=False)
     unidade = db.relationship('Unidade', backref=db.backref('contatos', lazy=True))
 
-    def __init__(self, nome:str, cargo:str, nivel:int, turno:str, email:str, telefone:str, unidade_id:int):
+    def __init__(self, nome:str, cargo:str, nivel:int, turno:str, email:str, telefone:str, unidade:Unidade):
         self.nome = nome
         self.cargo = cargo
         self.nivel = nivel
         self.turno = turno
         self.email = email
         self.telefone = telefone
-        self.unidade_id = unidade_id
+        self.unidade_id = unidade.id
 
-    def insert(contato):
-        db.session.add(contato)
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
         db.session.commit()
