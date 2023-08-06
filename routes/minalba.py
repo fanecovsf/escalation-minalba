@@ -96,6 +96,29 @@ def add_unidade():
 
         return Response(response=json.dumps(error_data, ensure_ascii=False), status=500, content_type="application/json")
     
+@minalba_bp.route('/minalba/unidades/delete', methods=['DELETE'])
+def del_unidade():
+    try:
+        data = request.json
+        id = data.get('id')
+
+        unidade = db.session.get(Unidade, id)
+        unidade.delete()
+
+        message_data = {
+            'sucess':f'Unidade {unidade.nome} deletada com sucesso!'
+        }
+
+        return Response(response=json.dumps(message_data, ensure_ascii=False), status=200, content_type="application/json")
+        
+
+    except Exception as e:
+        error_data = {
+            'error':str(e)
+        }
+
+        return Response(response=json.dumps(error_data, ensure_ascii=False), status=500, content_type="application/json")
+    
 @minalba_bp.route('/minalba/contatos')
 def contatos():
     contatos = db.session.query(Contato)
@@ -172,6 +195,28 @@ def add_contato():
         }
 
         return Response(response=json.dumps(error_data, ensure_ascii=False), status=500, content_type="application/json")
-    
 
+@minalba_bp.route('/minalba/contatos/delete', methods=['DELETE'])
+def del_contato():
+    try:
+        data = request.json
+
+        id = data.get('id')
+
+        contato = db.session.get(Contato, id)
+
+        contato.delete()
+
+        message_data = {
+            'sucess':f'Contato {contato.nome} deletado com sucesso!'
+        }
+
+        return Response(response=json.dumps(message_data, ensure_ascii=False), status=200, content_type="application/json")
+
+    except Exception as e:
+        error_data = {
+            'error':str(e)
+        }
+
+        return Response(response=json.dumps(error_data, ensure_ascii=False), status=500, content_type="application/json")
 

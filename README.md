@@ -126,6 +126,21 @@ Resposta
     "success": "Contato Novo Contato adicionado com sucesso!"
 }
 
+7. DELETE /minalba/(unidades & contatos)/delete
+Este endpoint permite deletar um contato ou uma unidade apenas passando o id do mesmo e enviando uma requisição do tipo "DELETE".
+Segue abaixo exemplo de corpo da requisição:
+{
+    "id":2
+}
+
+Resposta
+•	Código de Status: 200 (OK)
+•	Tipo de Conteúdo: application/json
+
+{
+    "sucess": "Contato Novo Contato deletado com sucesso!"
+}
+
 Como Utilizar
 1.	Realize requisições HTTP para os endpoints apropriados utilizando ferramentas como curl, Postman ou sua biblioteca de cliente HTTP preferida.
 2.	Siga as estruturas de requisição e resposta fornecidas para cada endpoint.
