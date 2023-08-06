@@ -1,6 +1,6 @@
 from db_config import db, BRANCH
 
-from .unidade import Unidade
+from models.unidade import Unidade
 
 class Contato(db.Model):
     __tablename__ = 'tb_contatos'

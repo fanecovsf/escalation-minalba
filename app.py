@@ -16,9 +16,11 @@ app.config['RESTFUL_JSON'] = {
 }
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_DATABASE_URI_PROD'] = 'postgresql://escalation_gn_user:PIyZ3GBLni8Y0teEebhr0Y1Opfqi7tA4@dpg-cj7h3r5jeehc73dnsms0-a.oregon-postgres.render.com/escalation_gn'
 
 app.config['SQLALCHEMY_BINDS'] = {
-    BRANCH: app.config['SQLALCHEMY_DATABASE_URI']
+    'test': app.config['SQLALCHEMY_DATABASE_URI'],
+    'production': app.config['SQLALCHEMY_DATABASE_URI_PROD']
 }
 
 db.init_app(app=app)
