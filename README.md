@@ -1,96 +1,106 @@
-Documentação dos Endpoints da API Minalba
-Este README fornece uma explicação detalhada sobre a funcionalidade de cada endpoint na API Minalba. A API Minalba disponibiliza endpoints para gerenciar informações sobre unidades e contatos dentro da organização.
-URL Base
-https://escalation-minalba.onrender.com
+# Documentação dos Endpoints da API Minalba
 
-Tratamento de Erros
+Este README fornece uma explicação detalhada sobre a funcionalidade de cada endpoint na API Minalba. A API Minalba disponibiliza endpoints para gerenciar informações sobre unidades e contatos dentro da organização.
+
+## URL Base
+
+`https://escalation-minalba.onrender.com`
+
+## Tecnologias utilizadas
+- Python
+- Flask
+- SQLAlchemy
+- PostgreSQL
+
+## Tratamento de Erros
+
 A API Minalba inclui tratamento de erros tanto para os códigos de status 404 (Não Encontrado) quanto para os códigos de status 500 (Erro Interno do Servidor).
 
-Endpoints
-1. GET /minalba/unidades
+## Endpoints
+
+### 1. GET /minalba/unidades
+
 Este endpoint recupera uma lista de todas as unidades na organização Minalba, juntamente com seus contatos.
 
-Resposta
-•	Código de Status: 200 (OK)
-•	Tipo de Conteúdo: application/json
+**Resposta**
+- Código de Status: 200 (OK)
+- Tipo de Conteúdo: `application/json`
 
-[
-    {
-        "id": 1,
-        "nome": "Unidade A",
-        "contatos": [
-            {
-                "id": 1,
-                "nome": "João",
-                "cargo": "Gerente",
-                "nivel": "Nível 1",
-                "turno": "Manhã",
-                "email": "joao@example.com",
-                "telefone": "123-456-7890"
-            },
-            ...
-        ]
-    },
-    ...
-]
+```json
+{
+    "id": 1,
+    "nome": "Unidade A",
+    "contatos": [
+        {
+            "id": 1,
+            "nome": "João",
+            "cargo": "Gerente",
+            "nivel": "Nível 1",
+            "turno": "Manhã",
+            "email": "joao@example.com",
+            "telefone": "123-456-7890"
+        },
+    ]
+},
+```
 
-2. GET /minalba/unidades/<int:id>
+### 2. GET /minalba/unidades/<int:id>
+
 Este endpoint recupera informações detalhadas sobre uma unidade específica com base no seu ID.
-Resposta
-•	Código de Status: 200 (OK)
-•	Tipo de Conteúdo: application/json
 
-[
-    {
-        "id": 1,
-        "nome": "Unidade A"
-    }
-]
+**Resposta**
+- Código de Status: 200 (OK)
+- Tipo de Conteúdo: `application/json`
 
-3. PUT /minalba/unidades/add
+
+### 3. PUT /minalba/unidades/add
+
 Este endpoint permite adicionar uma nova unidade à organização Minalba.
-Corpo da Requisição
+
+**Corpo da Requisição**
+```json
 {
     "nome": "Nova Unidade"
 }
+```
 
-Resposta
-•	Código de Status: 200 (OK)
-•	Tipo de Conteúdo: application/json
 
-{
-    "success": "Unidade Nova Unidade adicionada com sucesso!"
-}
+### 4. GET /minalba/contatos
 
-4. GET /minalba/contatos
 Este endpoint recupera uma lista de todos os contatos na organização Minalba, incluindo suas unidades associadas.
-Resposta
-•	Código de Status: 200 (OK)
-•	Tipo de Conteúdo: application/json
 
+**Resposta**
+- Código de Status: 200 (OK)
+- Tipo de Conteúdo: `application/json`
+```json
 [
-    {
-        "id": 1,
-        "nome": "João",
-        "cargo": "Gerente",
-        "nivel": "Nível 1",
-        "turno": "Manhã",
-        "email": "joao@example.com",
-        "telefone": "123-456-7890",
-        "unidade": {
-            "id": 1,
-            "nome": "Unidade A"
-        }
-    },
-    ...
+   {
+      "id":1,
+      "nome":"João",
+      "cargo":"Gerente",
+      "nivel":"Nível 1",
+      "turno":"Manhã",
+      "email":"joao@example.com",
+      "telefone":"123-456-7890",
+      "unidade":{
+         "id":1,
+         "nome":"Unidade A"
+      }
+   },
+   "..."
 ]
+```
 
-5. GET /minalba/contatos/<int:id>
+
+### 5. GET /minalba/contatos/<int:id>
+
 Este endpoint recupera informações detalhadas sobre um contato específico com base no seu ID.
-Resposta
-•	Código de Status: 200 (OK)
-•	Tipo de Conteúdo: application/json
 
+**Resposta**
+- Código de Status: 200 (OK)
+- Tipo de Conteúdo: `application/json`
+
+```json
 {
     "id": 1,
     "nome": "João",
@@ -104,10 +114,14 @@ Resposta
         "nome": "Unidade A"
     }
 }
+```
 
-6. PUT /minalba/contatos/add
+### 6. PUT /minalba/contatos/add
+
 Este endpoint permite adicionar um novo contato à organização Minalba.
-Corpo da Requisição
+
+**Corpo da Requisição**
+```json
 {
     "nome": "Novo Contato",
     "cargo": "Analista",
@@ -117,33 +131,35 @@ Corpo da Requisição
     "telefone": "987-654-3210",
     "unidade_id": 1
 }
+```
+**Resposta**
+- Código de Status: 200 (OK)
+- Tipo de Conteúdo: `application/json`
+ 
 
-Resposta
-•	Código de Status: 200 (OK)
-•	Tipo de Conteúdo: application/json
+### 7. DELETE /minalba/(unidades & contatos)/delete
 
+Este endpoint permite deletar um contato ou uma unidade apenas passando o ID do mesmo e enviando uma requisição do tipo "DELETE".
+
+**Exemplo de Corpo da Requisição**
+```json
 {
-    "success": "Contato Novo Contato adicionado com sucesso!"
+    "id": 2
 }
+```
 
-7. DELETE /minalba/(unidades & contatos)/delete
-Este endpoint permite deletar um contato ou uma unidade apenas passando o id do mesmo e enviando uma requisição do tipo "DELETE".
-Segue abaixo exemplo de corpo da requisição:
-{
-    "id":2
-}
-
-Resposta
-•	Código de Status: 200 (OK)
-•	Tipo de Conteúdo: application/json
-
-{
-    "sucess": "Contato Novo Contato deletado com sucesso!"
-}
-
-Como Utilizar
-1.	Realize requisições HTTP para os endpoints apropriados utilizando ferramentas como curl, Postman ou sua biblioteca de cliente HTTP preferida.
-2.	Siga as estruturas de requisição e resposta fornecidas para cada endpoint.
+**Resposta**
+- Código de Status: 200 (OK)
+- Tipo de Conteúdo: `application/json`
 
 
+## Como Utilizar
 
+1. Realize requisições HTTP para os endpoints apropriados utilizando ferramentas como curl, Postman ou sua biblioteca de cliente HTTP preferida.
+2. Siga as estruturas de requisição e resposta fornecidas para cada endpoint.
+
+
+## Autor
+Gustavo Henrique Faneco
+
+`https://github.com/fanecovsf`
