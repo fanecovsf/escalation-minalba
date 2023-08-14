@@ -2,14 +2,34 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     min-height: 100vh;
     background-color: #343541;
 }
 
 .container {
     text-align: center;
+    width: 100%;
+}
+
+.contato {
+    color: #fff;
+    border: #fff 1px solid;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.contato-detalhes {
+    border: #fff 1px solid;
+    width: 500px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .message {
