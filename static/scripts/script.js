@@ -1,7 +1,7 @@
 //endpoint contatos
  let contatos = []
 const elementoParaInserirContato = document.getElementById("contato")
-const endPointAPIContato = 'https://escalation-minalba.onrender.com/minalba/contatos'
+const endPointAPIContato = 'http://127.0.0.1:5000/minalba/contatos'
 
 getBuscarContatos()
 
@@ -18,24 +18,23 @@ function exibirContatosnaTela(Contatos) {
         elementoParaInserirContato.innerHTML += `
         <div class="blog_post" id="contato">
             <div class="container_copy">
-                <h3>${contato.nivel}</h3>
+                <h3>Nível: ${contato.nivel}</h3>
                 <h1>${contato.nome}</h1>
                 <p>${contato.cargo}</p>
                 <p>${contato.email}</p>
                 <p>${contato.telefone}</p>
-                <p>${contato.turno}</p>
-                <a class="btn_primary" href='#' target="_blank"><i class="fa-solid fa-pen"></i></a>
+                <p>Turno: ${contato.turno}</p>           
             </div>
         </div>
-        `
+        `    
     });
 }
-
+// <a class="btn_primary" href='#' target="_blank"><i class="fa-solid fa-pen"></i></a>
 //endpoint unidades
 
 let unidades = []
 
-const endPointAPIUnidade = 'https://escalation-minalba.onrender.com/minalba/unidades'
+const endPointAPIUnidade = 'http://127.0.0.1:5000/minalba/unidades'
 
 getBuscarUnidades()
 async function getBuscarUnidades() {

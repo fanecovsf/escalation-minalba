@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
 
 * {
     padding: 0;
@@ -6,22 +6,44 @@
 }
 
 html {
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 12px;
 }
 
 body {
+    width: 100%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    background: #1488cc;
-    background: -webkit-linear-gradient(to right, #03074b, #1488cc);
-    background: linear-gradient(to right, #03074b, #1488cc);
+    /* padding-left: 4rem; */
+    background: #0a192e
 }
 
-.container {
+body .page-content {
+    align-items: center;
+    text-align: center;
+	margin-top: 110px;
+	background-color: #122d54;
+	padding: 60px;
+	border-radius: 23px;
+	box-shadow: #000000 5px 5px 5px;
+	width: 80vw;
+}
+
+/* .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+} */
+
+.content-contatos {
     width: 100%;
     align-items: center;
 }
@@ -31,8 +53,6 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    padding: 4rem;
-    
 }
 
 .blog_post {
@@ -40,25 +60,26 @@ body {
     border-radius: 10px;
     box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
     position: relative;
-    width: 500px;
+    width: 400px;
     flex-wrap: wrap;
     margin-bottom: 20px; 
+    margin-left: 20px;
 
 }
 
 
 .container_copy {
-    padding: 6rem 4rem 5rem 4rem;
+    padding: 1.5rem 4rem 1.5rem 4rem;
 }
 
-img {
+/* img {
     height: 8.3rem;
     width: 8.3rem;
     position: relative;
     border-radius: 100%;
     box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
     z-index: 1;
-}
+} */
 
 h3 {
     margin: 0 0 0.5rem 0;
@@ -74,7 +95,7 @@ h1 {
 }
 
 p {
-    margin: 0 0 4.5rem 0;
+    margin: 0 0 1.5rem 0;
     font-size: 1.5rem;
     line-height: 1.45;
     color: #333;

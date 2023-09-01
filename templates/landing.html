@@ -1,18 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="{{ url_for('static', filename='styles/landing.css') }}"
       rel="stylesheet"
     />
+    <link
+      href="{{ url_for('static', filename='styles/header.css') }}"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='styles/glr_app.css') }}"
+      rel="stylesheet"
+    />
     <title>Landing page</title>
-</head>
-<body>
+  </head>
+  <body>
+    <header class="header-area header-sticky">
+      <div class="content-contatos">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <div class="nav-flex-container">
+                <!-- ***** Logo Start ***** -->
+                <a href="index.html" class="logo">
+                  <img
+                    src="{{ url_for('static', filename='img/Moby_Logo04.png') }}"
+                    alt=""
+                  />
+                </a>
+                <!-- ***** Logo End ***** -->
+                <!-- ***** Search End ***** -->
+
+                <!-- ***** Search End ***** -->
+                <!-- ***** Menu Start ***** -->
+                <ul class="nav">
+                  <li><a href="index.html" class="active">Home</a></li>
+                  <!-- <li><a href="noticias.html">Notícias</a></li> -->
+                  <li><a>Ticket</a></li>
+                  <!-- <li><a href="streams.html">Streams</a></li> -->
+                  <li>
+                    <a class="profile">
+                      <img
+                        href="profile.html"
+                        src="{{ url_for('static', filename='img/perfil.png') }}"
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                </ul>
+                <a class="menu-trigger">
+                  <span hidden>Menu</span>
+                </a>
+              </div>
+
+              <!-- ***** Menu End ***** -->
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <button onclick="openPopup()">Add Contact</button>
+
+    <dialog id="popup" class="popup">
+      <h3>Add Contact</h3>
+      <form id="contactForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required /><br />
+        <label for="email">Email:</label>
+        <input type="email" id="email" required /><br />
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" /><br />
+        <button type="submit">Save</button>
+        <button type="button" onclick="closePopup()">Cancel</button>
+      </form>
+    </dialog>
+
     <div class="container">
-        <section class="contato" id="contato">
-            <!-- <div class="blog_post" id="contato">
+      <section class="contato" id="contato">
+        <!-- <div class="blog_post" id="contato">
                 <div class="container_copy">
                     <h3>Nível 1</h3>
                     <h1>Nohran Ferreira</h1>
@@ -57,8 +126,9 @@
                     <a class="btn_primary" href='#' target="_blank"><i class="fa-solid fa-pen"></i></a>
                 </div>
             </div> -->
-        </section>
+      </section>
     </div>
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
-</body>
+    <script src="{{ url_for('static', filename='scripts/popUpAdd.js') }}"></script>
+  </body>
 </html>
