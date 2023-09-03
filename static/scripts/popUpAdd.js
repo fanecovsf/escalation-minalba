@@ -1,30 +1,11 @@
-const popup = document.getElementById("popup");
-const contactForm = document.getElementById("contactForm");
+const button = document.querySelector("button");
+const modal = document.querySelector("dialog");
+const buttonClose = document.getElementById("close");
 
-function openPopup() {
-  popup.style.display = "block";
-}
+button.onclick = function () {
+	modal.showModal();
+};
 
-function closePopup() {
-  popup.style.display = "none";
-  contactForm.reset();
-}
-
-contactForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-
-  const contact = {
-    name: name,
-    email: email,
-    phone: phone,
-  };
-
-  // You can perform further actions with the contact data, like adding to a list or sending to a server.
-  console.log("New contact:", contact);
-
-  closePopup();
-});
+buttonClose.onclick = function () {
+	modal.close();
+};

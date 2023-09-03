@@ -1,75 +1,99 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
 
 * {
-    padding: 0;
-    margin: 0;
+	padding: 0;
+	margin: 0;
 }
 
 html {
-    font-family: "Poppins", sans-serif;
-    font-size: 12px;
+	font-family: "Poppins", sans-serif;
+	font-size: 12px;
 }
 
 body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding-left: 4rem; */
-    background: #0a192e
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* padding-left: 4rem; */
+	background: #0a192e;
 }
 
-body .page-content {
-    align-items: center;
-    text-align: center;
+.conteudo {
+	display: flex;
+	flex-direction: column;
+}
+
+/* body .page-content {
+	align-items: center;
+	text-align: center;
 	margin-top: 110px;
 	background-color: #122d54;
 	padding: 60px;
 	border-radius: 23px;
 	box-shadow: #000000 5px 5px 5px;
 	width: 80vw;
-}
-
-/* .popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 } */
 
-.content-contatos {
-    width: 100%;
-    align-items: center;
+.header-contatos {
+	width: 500px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 20px;
+}
+.add-contato {
+	width: 80px;
+	height: 30px;
+	background-color: #ffc000;
+	border-radius: 15px;
+	border-bottom: 0px;
+	border: 0px;
+}
+
+.pesquisaContato {
+	width: 300px;
+	height: 30px;
+	border-radius: 15px;
+	border-bottom: 0px;
+	border: 0px;
+	padding-left: 20px;
+}
+
+.add-contato:hover {
+	background-color: #fff;
+	color: #000;
+	transition: 0.5s;
+}
+
+.fi {
+	font-size: 20px;
 }
 
 .contato {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	width: 80vw;
 }
 
 .blog_post {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
-    position: relative;
-    width: 400px;
-    flex-wrap: wrap;
-    margin-bottom: 20px; 
-    margin-left: 20px;
-
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.3);
+	position: relative;
+	width: 400px;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+	margin-left: 20px;
 }
 
-
 .container_copy {
-    padding: 1.5rem 4rem 1.5rem 4rem;
+	padding: 1.5rem 4rem 1.5rem 4rem;
 }
 
 /* img {
@@ -82,50 +106,50 @@ body .page-content {
 } */
 
 h3 {
-    margin: 0 0 0.5rem 0;
-    color: #999;
-    font-size: 1.25rem;
+	margin: 0 0 0.5rem 0;
+	color: #999;
+	font-size: 1.25rem;
 }
 
 h1 {
-    margin: 0 0 1rem 0;
-    font-size: 2.5rem;
-    letter-spacing: 0.5px;
-    color: #333;
+	margin: 0 0 1rem 0;
+	font-size: 2.5rem;
+	letter-spacing: 0.5px;
+	color: #333;
 }
 
 p {
-    margin: 0 0 1.5rem 0;
-    font-size: 1.5rem;
-    line-height: 1.45;
-    color: #333;
+	margin: 0 0 1.5rem 0;
+	font-size: 1.5rem;
+	line-height: 1.45;
+	color: #333;
 }
 
 .btn_primary {
-    border: none;
-    outline: none;
-    background: linear-gradient(90deg, #ff9966, #ff5e62);
-    padding: 1.5rem 2rem;
-    border-radius: 50px;
-    color: white;
-    font-size: 1.2rem;
-    box-shadow: 1px 10px 2rem rgba(255, 94, 98, 0.5);
-    transition: all 0.2s ease-in;
-    text-decoration: none;
+	border: none;
+	outline: none;
+	background: linear-gradient(90deg, #ff9966, #ff5e62);
+	padding: 1.5rem 2rem;
+	border-radius: 50px;
+	color: white;
+	font-size: 1.2rem;
+	box-shadow: 1px 10px 2rem rgba(255, 94, 98, 0.5);
+	transition: all 0.2s ease-in;
+	text-decoration: none;
 }
 
 .btn_primary:hover {
-    box-shadow: 0px 5px 1rem rgba(255, 94, 98, 0.5);
+	box-shadow: 0px 5px 1rem rgba(255, 94, 98, 0.5);
 }
 
 @media screen and (max-width: 1080px) {
-    .blog_post {
-        width: 500px;
-    }
+	.blog_post {
+		width: 500px;
+	}
 }
 
 @media only screen and (max-width: 650px) {
-    body {
-        background-color: black;
-    };
+	body {
+		background-color: black;
+	}
 }
