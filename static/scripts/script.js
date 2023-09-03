@@ -1,7 +1,8 @@
 //endpoint contatos
 let contatos = [];
 const elementoParaInserirContato = document.getElementById("contato");
-const endPointAPIContato = "http://127.0.0.1:5000/minalba/contatos";
+const endPointAPIContato =
+	"https://escalation-minalba.onrender.com/minalba/contatos";
 
 getBuscarContatos();
 
@@ -14,7 +15,8 @@ async function getBuscarContatos() {
 
 let unidades = [];
 
-const endPointAPIUnidade = "http://127.0.0.1:5000/minalba/unidades";
+const endPointAPIUnidade =
+	"https://escalation-minalba.onrender.com/minalba/unidades";
 
 getBuscarUnidades();
 async function getBuscarUnidades() {
